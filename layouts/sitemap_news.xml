@@ -4,7 +4,7 @@
   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   {{ with .GetPage "/posts" }}
     {{ $two_days_ago_date := now.AddDate 0 0 -2 }}
-    {{ range (where .Pages "Params.published_at" "gt" $two_days_ago_date) }}
+    {{ range (where .Pages "Date" "gt" $two_days_ago_date) }}
       {{ $post := . }}
       <!-- Write only html format  -->
       {{ with .OutputFormats.Get "html" }}
@@ -19,7 +19,7 @@
               <news:name>{{ $.Site.Title }}</news:name>
               <news:language>{{ $.Site.Language }}</news:language>
             </news:publication>
-            <news:publication_date>{{ $post.Params.published_at }}</news:publication_date>
+            <news:publication_date>{{ $post.Date.Format "2006-01-02T15:04:05-07:00" }}</news:publication_date>
             <news:title>{{ $post.Title }}</news:title>
           </news:news>
         </url>
