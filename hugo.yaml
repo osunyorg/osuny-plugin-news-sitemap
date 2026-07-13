@@ -1,0 +1,24 @@
+_merge: deep
+
+outputFormats:
+  html:
+    weight: 10
+  sitemap_news:
+    baseName: sitemap_news
+    isHTML: false
+    isPlainText: false
+    mediaType: application/xml
+    notAlternative: false
+    noUgly: false
+    path: ''
+    permalinkable: true
+    rel: sitemap_news
+    root: false
+    ugly: true
+    weight: 1
+
+outputs:
+  home:
+  - html
+  - rss
+  - sitemap_news
